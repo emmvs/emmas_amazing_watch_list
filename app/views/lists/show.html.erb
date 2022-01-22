@@ -1,0 +1,8 @@
+<h1>Show the movies</h1>
+
+
+<ul class="list-group">
+  <% @lists.each do |list| %>
+    <li class="list-group-item"><%= list.name %></li>
+  <% end %>
+</ul>
