@@ -1,8 +1,10 @@
-<h1>Show the movies</h1>
-
+<%# app/views/lists/show.html.erb %>
+<h1>Show the lists</h1>
 
 <ul class="list-group">
   <% @lists.each do |list| %>
     <li class="list-group-item"><%= list.name %></li>
   <% end %>
 </ul>
+
+<%= link_to 'Add movies to your list', list_bookmarks_path(@bookmark) %>
