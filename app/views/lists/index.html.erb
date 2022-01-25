@@ -1,26 +1,26 @@
 <%# app/views/lists/index.html.erb %>
+
+<p>
+  <span id="banner-typed-text"></span>
+</p>
+
+<%# Navbar%>
+<%= render 'navbar'%>
+<%# flex-box container %>
+<div class="container">
+
 <h1 class="h1"><span class="title-2">Emmas</span><span class="text-biolink">Amazing</span><span class="text-oneonone">Movie</span><span class="text-spons">Lists</span></h1>
-<h2 class="h2">Save any kind of movies!</h2>
-<img src="https://img-19.ccm2.net/kyn2_bCQILiKVW1jFOx5hVaFGNo=/480x335/smart/6246fc94bad94dda9c611a1fdc87dd76/ccmcms-commentcamarche/23887428.jpg">
+  <h2 class="h2">Save any kind of movies!</h2>
+  <div class="item-img">
+    <img src="https://img-19.ccm2.net/kyn2_bCQILiKVW1jFOx5hVaFGNo=/480x335/smart/6246fc94bad94dda9c611a1fdc87dd76/ccmcms-commentcamarche/23887428.jpg">
+  </div>
+<h3>List Names 🎥</h3>
 <%# display lists %>
-<%# Navbar with My Lists %>
-
-<table>
-  <thead>
-    <tr>
-      <th>List Names 🎥</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @lists.each do |list| %>
-      <tr>
-        <td><%= list.name %></td>
-        <td><%= link_to 'Show list', lists_path %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Add new list', new_list_path(@list) %>
+    <div class="item-list">
+      <% @lists.each do |list| %>
+        <div class="list-name"><%= list.name %></div>
+        <div class="item-btn"><%= link_to 'Show list', list_path(list) %></div>
+      <% end %>
+    </div>
+  <div class="item-btn"><%= link_to 'Add new list', new_list_path(@list) %></div>
+</div>

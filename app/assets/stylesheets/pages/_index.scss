@@ -1,2 +1,11 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  padding: 5%;
+  // margin: 20%;
+  // border: solid 2px #806868;
+}

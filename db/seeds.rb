@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Movie.delete_all
+
+pulpfiction = Movie.create!(
+  title: "Pulp Fiction",
+  overview: "Pulp Fiction is a 1994 American black comedy crime film written and directed by Quentin Tarantino. It tells several stories of criminal Los Angeles.",
+  poster_url: "https://upload.wikimedia.org/wikipedia/en/3/3b/Pulp_Fiction_%281994%29_poster.jpg",
+  rating: 9.0
+)
+
 wonderwomen = Movie.create!(
   title: "Wonder Woman 1984",
   overview: "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s",
@@ -33,16 +42,3 @@ oceanseight = Movie.create!(
   poster_url: "https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg",
   rating: 7.0
 )
-
-Movie.create!(
-  name: "Pulp Fiction",
-  overview: "Pulp Fiction is a 1994 American black comedy crime film written and directed by Quentin Tarantino. It tells several stories of criminal Los Angeles.",
-  poster_url: "https://upload.wikimedia.org/wikipedia/en/3/3b/Pulp_Fiction_%281994%29_poster.jpg",
-  raiting: 10.0
-)
-
-lists = %w(Classics\ Horror\ Loveydovey Bullshit)
-
-names.each do |name|
-  List.create!(name: name)
-end
