@@ -4,8 +4,31 @@
 .container {
   display: flex;
   flex-direction: column;
-
+  justify-content: space-around;
   padding: 5%;
   // margin: 20%;
   // border: solid 2px #806868;
+}
+
+.title-1 {
+ color: deepskyblue;
+}
+
+.title-2 {
+  color: rgb(1, 151, 201);
+}
+
+.title-3 {
+  color: rgb(7, 99, 129);
+}
+
+.title-4 {
+  color: rgb(2, 58, 77);
+}
+
+.title-1, .title-2, .title-3, .title-4 {
+  background-color: rgb(181, 240, 255);
+  padding: 1%;
+  border-radius: 10%;
+  margin: 4%;
 }
