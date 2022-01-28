@@ -7,13 +7,17 @@
   // // position: absolute;
   // // z-index: -1;
   margin: 10px;
-  // border: solid 2px #806868;
 }
 
 .item-btn {
-  // padding: 5%;
-  // border: solid;
-  // border-radius: 10%;
   margin: 10px;
-  border: solid 2px #806868;
+  text-decoration: none;
+  background-color: transparent;
+  color: #4A4A53;
+  border: 1px solid #4A4A4E;
+  padding: 3px 12px;
+  border-radius: 29px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
