@@ -1,26 +1,31 @@
 <%# app/views/lists/index.html.erb %>
 
-<%# Navbar%>
+<%# Emmas Navbar%>
 <%= render 'navbar'%>
 <p>
   <span id="banner-typed-text"></span>
 </p>
+
+<%# Emmas Banner%>
 <div class="banner">
   <h1 class="h1"><span class="title-1">Emmas</span><span class="title-2">Amazing</span><span class="title-3">Movie</span><span class="title-4">Lists</span></h1>
     <h2 class="h2">save any kind of films</h2>
 </div>
-
-<h3>List Names 🎥</h3>
-
-<%# flex-box container %>
-  <div class="container">
-    <%# display lists %>
-
-      <% @lists.each do |list| %>
-      <div>
-        <div class="list-name"><%= list.name %></div>
-        <div class="item-btn"><%= link_to 'Show list', list_path(list) %></div>
-      </div>
-      <% end %>
+<br>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">My Lists 🎥</h3>
+    <%= link_to "Create a movie list", new_list_path, class: "btn btn-success" %>
   </div>
-    <div class="item-btn"><%= link_to 'Add new list', new_list_path(@list) %></div>
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="co-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to list_path(list), class:"text-decoration-none" do %>
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('logo.png') %>)">
+            <%= list.name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
