@@ -1,37 +1,27 @@
-<%# app/views/lists/show.html.erb %>
-
-<%# Emmas Navbar%>
-<%= render 'navbar'%>
-
-<%# Emmas Banner%>
-<div class="banner">
-  <h1 class="h1"><span class="title-1">Emmas</span><span class="title-2">Amazing</span><span class="title-3">Movie</span><span class="title-4">Lists</span></h1>
-    <h2 class="h2">Save any kind of movies!</h2>
-</div>
-
-<div class="container m-5">
-  <h1>Current Movie List:</h1>
-  <br>
-  <h2><%= @list.name %></h2>
-  <br>
-  <% if @bookmarks %>
-    <div class="container m-5">
-      <div class="cards">
-        <% @bookmarks.each do |bookmark| %>
-          <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= bookmark.image_url %>')">
-            <%= bookmark.name %>
-              <div class="position-absolute delete-btn-position">
-            <%= link_to "delete", bookmark_path(bookmark, list: @list.id), method: :delete, class: "btn btn-warning" %>
-          </div>
-        <% end %>
+<div class="container m-5 p-2">
+  <h2>Current Movie List:</h2>
+  <h3><%= @list.name %></h3>
+    <% if @bookmarks %>
+      <div class="container m-5">
+        <div class="cards">
+          <% @bookmarks.each do |bookmark| %>
+            <div class="card position-relative">
+              <img src="<%= bookmark.movie.poster_url %>" alt="<%= bookmark.movie.title %> poster" style="width: 100%;">
+              <div class="overlay">
+                <div class="text"><%= bookmark.name %></div>
+                <%= link_to "delete", bookmark_path(bookmark, list: @list.id), method: :delete, class: "btn btn-warning position-absolute delete-btn-position" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <% @list.movies.each do |movie| %>
-  <li>
-  <%= movie.title %>
-  </li>
-  <% end %>
+    <% @list.movies.each do |movie| %>
+      <li>
+        <%= movie.title %>
+        <img src="<%= movie.poster_url %>" alt="<%= movie.title %> poster" style="width: 100px; height: auto;">
+      </li>
+    <% end %>
+  <%= link_to 'Add a new Bookmark to your List', new_list_bookmark_path(@list) %>
 </div>
-<%= link_to 'Add a new Bookmark to your List', new_list_bookmark_path(@list) %>

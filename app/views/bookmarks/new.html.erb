@@ -1,11 +1,9 @@
-<%# app/views/bookmarks/new.html.erb %>
-<div class="container new-form">
-  <h3>Add a new movie to your list</h3>
+<div class="container new-form py-5">
+  <h3>Add a new movie to your "<%= @list.name %>" list 🌈</h3>
   <%= simple_form_for [ @list, @bookmark ] do |f| %>
-    <%= f.input :comment, placeholder: "your bookmark" %>
-    <%= f.association :movie %>
-    <%= f.button :submit %>
+    <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
+    <%= f.association :movie, prompt: "Select a movie" %>
+    <%= f.button :submit, class: "btn btn-flat" %>
   <% end %>
-</div>
-
 <%= link_to 'Back to Lists', lists_path  %>
+</div>
