@@ -9,30 +9,29 @@
     <h2 class="h2">Save any kind of movies!</h2>
 </div>
 
-<h1>Current movie List</h1>
-
-<div class="container">
-    <h1><%= @list.name %></h1>
-</div>
-
-<% if @bookmarks %>
-  <div class="container mt-5">
-    <div class="cards">
-      <% @bookmarks.each do |bookmark| %>
-        <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= bookmark.image_url %>')">
-          <%= bookmark.name %>
-            <div class="position-absolute delete-btn-position">
-          <%= link_to "delete", bookmark_path(bookmark, list: @list.id), method: :delete, class: "btn btn-warning" %>
-        </div>
-      <% end %>
+<div class="container m-5">
+  <h1>Current Movie List:</h1>
+  <br>
+  <h2><%= @list.name %></h2>
+  <br>
+  <% if @bookmarks %>
+    <div class="container m-5">
+      <div class="cards">
+        <% @bookmarks.each do |bookmark| %>
+          <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= bookmark.image_url %>')">
+            <%= bookmark.name %>
+              <div class="position-absolute delete-btn-position">
+            <%= link_to "delete", bookmark_path(bookmark, list: @list.id), method: :delete, class: "btn btn-warning" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
-<% @list.movies.each do |movie| %>
-<li>
-<%= movie.title %>
-</li>
-<% end %>
-
-<%= link_to 'Add a new Bookmark to your list', new_list_bookmark_path(@list) %>
+  <% @list.movies.each do |movie| %>
+  <li>
+  <%= movie.title %>
+  </li>
+  <% end %>
+</div>
+<%= link_to 'Add a new Bookmark to your List', new_list_bookmark_path(@list) %>
