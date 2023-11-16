@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container p-3">
 
-  <%= link_to "Create a movie list", new_list_path, class: "btn btn-success" %>
+  <%= link_to "Create a movie list", new_list_path, class: "btn btn-info text-white" %>
   <div class="container m-4 py-5 rounded">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">My Lists 🎥</h3>
@@ -10,8 +10,13 @@
     <% @lists.each do |list| %>
       <div class="co-12 col-sm-6 col-md-4 mb-3">
         <%= link_to list_path(list), class:"text-decoration-none" do %>
-          <div class="card-category card p-3 bg-info" width="40px" data-aos="zoom-in")">
+          <div class="text-white bg-info card-category card p-3 bg-info" width="40px" data-aos="zoom-in")">
             <%= list.name %>
+            <% if list.photo.attached? %>
+              <%= cl_image_tag list.photo.key, width: "200px", height: "100%" %>
+            <% else %>
+              <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=3518&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", width="200px", height="100%", crop: :fill alt="random movie">
+            <% end %>
           </div>
         <% end %>
       </div>

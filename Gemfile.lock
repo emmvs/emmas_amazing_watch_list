@@ -242,7 +242,7 @@ DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.4)
   byebug
-  cloudinary (~> 1.16.0)
+  cloudinary
   dotenv-rails
   faker
   font-awesome-sass (~> 5.15)
