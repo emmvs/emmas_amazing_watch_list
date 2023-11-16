@@ -31,9 +31,15 @@ class ListsController < ApplicationController
     if @list.save!
       redirect_to list_path(@list), notice: 'List was successsfully updated!🎉'
     else
-      render :new
+      render :edit
     end
+  end
 
+  def destroy
+    @list = List.find(params[:id])
+    if @list.destroy!
+      redirect_to root_path
+    end
   end
 
   private

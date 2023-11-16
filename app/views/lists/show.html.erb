@@ -17,10 +17,11 @@
               <h4 class="font-weight-bold"><%= bookmark.movie.title %></h4>
                 <p class="mt-2"><%= bookmark.comment %></p>
                 <img src="<%= bookmark.movie.poster_url %>" alt="<%= bookmark.movie.title %> poster" style="width: 100px; height: auto;">
-                <%= link_to "delete", bookmark_path(bookmark, list: @list.id), method: :delete, class: "btn btn-warning mt-2" %>
+                <%= link_to "X", bookmark_path(bookmark, list: @list.id), method: :delete, class: "btn btn-warning mt-2" %>
             </div>
           </div>
         </div>
         <% end %>
+  <%= link_to "Delete list 😱", list_path(@list.id), method: :delete, class: "btn btn-warning mt-2" %>
   <%= link_to '👈🏻 Back home', root_path, class: "btn btn-info" %>
 </div>
