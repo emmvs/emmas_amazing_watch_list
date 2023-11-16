@@ -15,15 +15,10 @@
 
   <body>
     <%# Emmas Navbar%>
-    <%= render 'navbar'%>
+    <%= render 'shared/navbar'%>
     <p>
       <span id="banner-typed-text"></span>
     </p>
-
-    <div class="banner">
-      <h1 class="h1"><span class="title-1">Emmas</span><span class="title-2">Amazing</span><span class="title-3">Movie</span><span class="title-4">Lists</span></h1>
-      <h2 class="h2 text-light m-3">Save any kind of movies!</h2>
-    </div>
 
     <%= yield %>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

@@ -1,27 +1,33 @@
+<div class="showing-off-banner" style="<%= 'background-image: url(' + ( @list.photo.attached? ? cl_image_path(@list.photo.key) : 'https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=3518&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') + ')' %>">
+  <h1 class="h1"><span class="title-1">Emmas</span><span class="title-2">Amazing</span><span class="title-3">Movie</span><span class="title-4">Lists</span></h1>
+  <h2 class="h2 text-light m-3">Save any kind of movies!</h2>
+</div>
+
 <div class="container m-5 p-2">
-  <h2>Current Movie List:</h2>
-  <h3><%= @list.name %></h3>
-    <% if @list.photo.attached? %>
-      <%= cl_image_tag @list.photo.key, width: "200", crop: :fill %>
-    <% else %>
-      <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=3518&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", width="200px", height="100%", crop: :fill alt="random movie">
-    <% end %>
+  <h2>Current Movie List: <%= @list.name %></h2>
 
     <%= link_to 'Add a new Bookmark to your List', new_list_bookmark_path(@list), class: "btn btn-info" %>
     <%= link_to 'Edit your Bookmarks', edit_list_path(@list), class: "btn btn-info" %>
 
-        <% @list.bookmarks.each do |bookmark| %>
-        <div class="container">
-          <div class="row">
-            <div class="card m-5 p-3 border bg-light rounded col-lg-6">
-              <h4 class="font-weight-bold"><%= bookmark.movie.title %></h4>
-                <p class="mt-2"><%= bookmark.comment %></p>
-                <img src="<%= bookmark.movie.poster_url %>" alt="<%= bookmark.movie.title %> poster" style="width: 100px; height: auto;">
-                <%= link_to "X", bookmark_path(bookmark, list: @list.id), method: :delete, class: "btn btn-warning mt-2" %>
+    <div class="container">
+            <div class="movie-container">
+          <% @list.bookmarks.each do |bookmark| %>
+            <div class="movie-card">
+                <div>
+                  <img src="<%= bookmark.movie.poster_url %>" alt="<%= bookmark.movie.title %> poster" height="200px" width="150px">
+                </div>
+                <div>
+                  <div class="py-3 px-2">
+                    <h4 class=" font-weight-bold"><%= bookmark.movie.title %></h4>
+                    <p class="mt-2"><%= bookmark.comment %></p>
+                    <%= link_to "X", bookmark_path(bookmark, list: @list.id), method: :delete, class: "btn btn-light mt-2" %>
+                  </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <% end %>
-  <%= link_to "Delete list 😱", list_path(@list.id), method: :delete, class: "btn btn-warning mt-2" %>
+          <% end %>
+            </div>
+    </div>
+
+  <%= link_to "Delete list 😱", list_path(@list.id), method: :delete, class: "btn btn-light mt-2" %>
   <%= link_to '👈🏻 Back home', root_path, class: "btn btn-info" %>
 </div>

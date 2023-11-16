@@ -1,3 +1,5 @@
+<%= render '/shared/banner'%>
+
 <div class="container new-form py-5">
   <h3>Add a new movie to your "<%= @list.name %>" list 🌈</h3>
   <%= simple_form_for [ @list, @bookmark ] do |f| %>
